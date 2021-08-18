@@ -2,6 +2,10 @@ import discord
 import random
 import os
 from discord.ext import commands,tasks
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 from itertools import cycle
 intents=intents=discord.Intents.all()
 
@@ -97,5 +101,6 @@ async def reaload(ctx,extension):
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
-            
-client.run('NzI0ODcwODMxNDY0OTA2ODc0.XvGekQ.IKHSZYpsKsgpw0JnBDCQAQKBq_Q')
+token = os.environ.get("key")       
+
+client.run(token)
